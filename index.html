@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Sayantika Dutta | Expert Dermatologist</title>
+    <meta name="description" content="Expert Dermatological Care by Dr. Sayantika Dutta. MBBS, Fellowship British Association of Dermatology. Advanced skin treatments and laser therapy.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -14,11 +15,11 @@
             --cream: #FFF5EE;
             --gold: #D4A574;
             --gold-dark: #B88A5C;
-            --text-dark: #3A2E42;
-            --text-light: #6B5B75;
-            --glass-bg: rgba(255, 255, 255, 0.35);
-            --glass-border: rgba(255, 255, 255, 0.7);
-            --glass-shadow: 0 8px 32px 0 rgba(107, 91, 117, 0.15);
+            --text-dark: #2D2433;
+            --text-light: #5A4F63;
+            --glass-bg: rgba(255, 255, 255, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.8);
+            --glass-shadow: 0 8px 32px 0 rgba(45, 36, 51, 0.12);
         }
 
         * {
@@ -30,14 +31,16 @@
         body {
             font-family: 'Inter', sans-serif;
             color: var(--text-dark);
-            background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 40%, #e8eaf6 100%);
+            background: linear-gradient(135deg, #faf7f5 0%, #f5f0f8 40%, #f0f4f8 100%);
             overflow-x: hidden;
             min-height: 100vh;
             position: relative;
+            line-height: 1.6;
         }
 
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
+            font-weight: 600;
         }
 
         /* --- Background Floating Elements --- */
@@ -55,8 +58,8 @@
         .sphere {
             position: absolute;
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(255,255,255,0.4) 30%, rgba(201, 177, 224, 0.5) 70%, rgba(253, 220, 213, 0.6) 100%);
-            box-shadow: inset -10px -10px 20px rgba(0,0,0,0.05), 0 15px 35px rgba(107, 91, 117, 0.1);
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(255,255,255,0.4) 30%, rgba(201, 177, 224, 0.4) 70%, rgba(253, 220, 213, 0.5) 100%);
+            box-shadow: inset -10px -10px 20px rgba(0,0,0,0.05), 0 15px 35px rgba(90, 79, 99, 0.1);
             animation: float 8s ease-in-out infinite;
         }
 
@@ -93,8 +96,8 @@
         /* --- Glassmorphism Base --- */
         .glass {
             background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 24px;
             box-shadow: var(--glass-shadow);
@@ -113,7 +116,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
         }
 
         .container {
@@ -123,46 +126,183 @@
             position: relative;
         }
 
-        /* --- Hero Section --- */
-        .hero-content {
+        /* --- Navigation --- */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
-            gap: 2rem;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
             position: relative;
         }
 
+        .nav-links a:hover {
+            color: var(--text-dark);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Hero Section --- */
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 2rem;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .initials-badge {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--peach), var(--lavender));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 10px 40px rgba(201, 177, 224, 0.4);
+            border: 4px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+            z-index: 2;
+        }
+
         .hero-card {
-            padding: 2.5rem 3.5rem;
+            padding: 3rem 4rem;
             text-align: center;
             position: relative;
             z-index: 2;
         }
 
         .hero-card h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 600;
             color: var(--text-dark);
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.5px;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
         }
 
-        .hero-card p {
+        .hero-card .credentials {
             font-size: 1.1rem;
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.8;
             font-weight: 400;
+            margin-bottom: 1.5rem;
         }
 
-        .hero-decoration {
-            position: absolute;
-            z-index: 1;
+        .hero-card .tagline {
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            opacity: 0.9;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--peach), var(--lavender));
+            border: none;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(201, 177, 224, 0.4);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 177, 224, 0.6);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            border: 2px solid var(--glass-border);
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
         }
 
         /* --- About Section --- */
         .about-panel {
-            padding: 4rem;
+            padding: 5rem;
             display: flex;
             gap: 4rem;
             align-items: center;
@@ -170,18 +310,21 @@
             overflow: hidden;
         }
 
-        .about-image-container {
+        .about-initials {
             flex-shrink: 0;
-            position: relative;
-        }
-
-        .about-image {
             width: 280px;
             height: 280px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid rgba(255,255,255,0.8);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, var(--peach), var(--lavender));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 15px 50px rgba(201, 177, 224, 0.4);
+            border: 6px solid rgba(255, 255, 255, 0.8);
             position: relative;
             z-index: 2;
         }
@@ -192,64 +335,118 @@
 
         .about-text h2 {
             font-size: 3rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             color: var(--text-dark);
         }
 
         .about-text p {
             font-size: 1.1rem;
-            line-height: 1.8;
+            line-height: 1.9;
             color: var(--text-light);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .credentials-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .credentials-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .credentials-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 1.2rem;
         }
 
         /* --- Services Section --- */
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 800px;
+            gap: 2.5rem;
+            max-width: 900px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
         }
 
         .service-card {
-            padding: 3rem 2rem;
+            padding: 3.5rem 2.5rem;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.4s ease;
+            cursor: pointer;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(107, 91, 117, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(90, 79, 99, 0.15);
+            background: rgba(255, 255, 255, 0.6);
         }
 
         .service-icon {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: linear-gradient(135deg, rgba(253, 220, 213, 0.3), rgba(201, 177, 224, 0.3));
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
         }
 
         .service-icon svg {
-            width: 100%;
-            height: 100%;
-            stroke: #8B5A6B;
+            width: 50px;
+            height: 50px;
+            stroke: var(--text-dark);
             stroke-width: 1.5;
             fill: none;
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--text-dark);
             font-family: 'Inter', sans-serif;
-            font-weight: 500;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         /* --- Contact Section --- */
@@ -260,13 +457,29 @@
             gap: 3rem;
             position: relative;
             z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .contact-form-panel {
-            padding: 3rem;
+            padding: 3.5rem;
             width: 100%;
-            max-width: 500px;
             position: relative;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .form-header h2 {
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: var(--text-light);
         }
 
         .form-group {
@@ -283,8 +496,8 @@
 
         .form-control {
             width: 100%;
-            padding: 0.8rem 1rem;
-            background: rgba(255, 255, 255, 0.5);
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.8);
             border-radius: 12px;
             font-family: 'Inter', sans-serif;
@@ -295,21 +508,21 @@
         }
 
         .form-control:focus {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             border-color: var(--lavender);
-            box-shadow: 0 0 0 3px rgba(201, 177, 224, 0.3);
+            box-shadow: 0 0 0 4px rgba(201, 177, 224, 0.2);
         }
 
         select.form-control {
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%233A2E42' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232D2433' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            background-position: right 1rem center;
+            background-position: right 1.25rem center;
         }
 
         .btn-submit {
             width: 100%;
-            padding: 1rem;
+            padding: 1.25rem;
             background: linear-gradient(135deg, var(--peach), var(--lavender));
             border: none;
             border-radius: 12px;
@@ -332,44 +545,58 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            max-width: 700px;
             flex-wrap: wrap;
             gap: 2rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
         }
 
         .contact-details p {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             font-size: 1rem;
             color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-details p:last-child {
+            margin-bottom: 0;
         }
 
         .btn-consultation {
-            padding: 1rem 2.5rem;
+            padding: 1.25rem 3rem;
             background: linear-gradient(135deg, #fff, var(--peach));
-            border: 1px solid rgba(255,255,255,0.8);
+            border: 2px solid rgba(255,255,255,0.8);
             border-radius: 50px;
             font-family: 'Inter', sans-serif;
             font-size: 1.1rem;
             font-weight: 600;
             color: var(--text-dark);
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-consultation:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
         }
 
-        /* --- Responsive --- */
-        @media (max-width: 768px) {
-            .hero-card h1 { font-size: 1.8rem; }
-            .hero-card { padding: 1.5rem 2rem; }
-            .about-panel { flex-direction: column; padding: 2rem; gap: 2rem; }
-            .about-image { width: 200px; height: 200px; }
-            .services-grid { grid-template-columns: 1fr; }
-            .contact-info { flex-direction: column; text-align: center; }
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-light);
+            font-size: 0.95rem;
         }
 
         /* --- Scroll Reveal --- */
@@ -382,9 +609,43 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* --- Responsive --- */
+        @media (max-width: 968px) {
+            .nav-links { display: none; }
+            .hero-card h1 { font-size: 2.2rem; }
+            .hero-card { padding: 2.5rem 3rem; }
+            .about-panel { flex-direction: column; padding: 3rem; gap: 3rem; }
+            .about-initials { width: 220px; height: 220px; font-size: 4rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .contact-info { flex-direction: column; text-align: center; }
+            .contact-details p { justify-content: center; }
+        }
+
+        @media (max-width: 640px) {
+            .hero-card h1 { font-size: 1.8rem; }
+            .hero-card { padding: 2rem; }
+            .initials-badge { width: 110px; height: 110px; font-size: 2.5rem; }
+            .section-title h2 { font-size: 2.2rem; }
+            .about-text h2 { font-size: 2.2rem; }
+            .contact-form-panel { padding: 2.5rem 2rem; }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#" class="logo">Dr. Sayantika Dutta</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Background Floating Elements -->
     <div class="bg-container" id="bgContainer">
@@ -445,22 +706,19 @@
     </div>
 
     <!-- Hero Section -->
-    <section id="hero">
+    <section id="home">
         <div class="container">
             <div class="hero-content">
+                <div class="initials-badge reveal">SD</div>
                 <div class="hero-card glass glass-tilt reveal">
                     <h1>Dr. Sayantika Dutta</h1>
+                    <p class="credentials">MBBS | Fellowship, British Association of Dermatology</p>
+                    <p class="tagline">"Where British dermatological excellence meets compassionate care"</p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn-primary">Book Consultation</a>
+                        <a href="#services" class="btn-secondary">Our Services</a>
+                    </div>
                 </div>
-                <div class="hero-card glass glass-tilt reveal" style="transition-delay: 0.2s;">
-                    <p>MBBS,<br>Fellowship British<br>Association of Dermatology</p>
-                </div>
-                
-                <!-- Decorative elements near hero -->
-                <svg class="hero-decoration" style="top: -20px; left: -40px; width: 80px; height: 80px;" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="10" fill="rgba(255,255,255,0.7)" stroke="#D4A574" stroke-width="2"/>
-                    <circle cx="20" cy="80" r="6" fill="rgba(255,255,255,0.7)" stroke="#D4A574" stroke-width="2"/>
-                    <line x1="50" y1="50" x2="20" y2="80" stroke="#D4A574" stroke-width="2"/>
-                </svg>
             </div>
         </div>
     </section>
@@ -469,20 +727,20 @@
     <section id="about">
         <div class="container">
             <div class="about-panel glass reveal">
-                <div class="about-image-container">
-                    <!-- Using a placeholder image for a female doctor -->
-                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" alt="Dr. Sayantika Dutta" class="about-image">
-                    <!-- Floating glass cards behind image -->
-                    <div class="glass" style="position: absolute; bottom: -20px; right: -30px; width: 120px; height: 160px; z-index: 1; transform: rotate(-10deg);"></div>
-                    <div class="glass" style="position: absolute; bottom: -40px; right: -60px; width: 100px; height: 140px; z-index: 0; transform: rotate(-20deg);"></div>
-                </div>
+                <div class="about-initials">SD</div>
                 <div class="about-text">
                     <h2>About</h2>
                     <p>Dr. Sayantika Dutta brings world-class dermatological expertise to every consultation. With her MBBS foundation and a prestigious Fellowship from the British Association of Dermatology, she combines evidence-based medicine with a personalized approach to skin health.</p>
                     <p>Her clinic offers a serene environment where advanced technology meets compassionate care, ensuring the best outcomes for every patient. Specializing in both medical and aesthetic dermatology, Dr. Dutta is dedicated to helping you achieve your healthiest, most radiant skin.</p>
+                    <ul class="credentials-list">
+                        <li>MBBS - Medical Degree</li>
+                        <li>Fellowship - British Association of Dermatology</li>
+                        <li>Advanced Training in Laser & Aesthetic Procedures</li>
+                        <li>Member of Indian Association of Dermatologists</li>
+                    </ul>
                 </div>
                 
-                <!-- Floating elements inside about panel -->
+                <!-- Floating elements -->
                 <div class="sphere medium" style="top: -20px; right: -20px; width: 60px; height: 60px;"></div>
                 <div class="sphere small" style="bottom: -15px; right: 20%; width: 40px; height: 40px;"></div>
                 <svg class="molecule" style="bottom: -30px; left: 10%; width: 80px; height: 80px;" viewBox="0 0 100 100">
@@ -508,6 +766,10 @@
     <!-- Services Section -->
     <section id="services">
         <div class="container">
+            <div class="section-title reveal">
+                <h2>Our Services</h2>
+                <p>Comprehensive dermatological solutions — from medical treatments to advanced aesthetic procedures</p>
+            </div>
             <div class="services-grid">
                 <div class="service-card glass glass-tilt reveal">
                     <div class="service-icon">
@@ -519,6 +781,7 @@
                         </svg>
                     </div>
                     <h3>Skin Treatments</h3>
+                    <p>Medical dermatology for all skin conditions including eczema, psoriasis, and dermatitis</p>
                 </div>
                 
                 <div class="service-card glass glass-tilt reveal" style="transition-delay: 0.1s;">
@@ -537,6 +800,7 @@
                         </svg>
                     </div>
                     <h3>Laser Therapy</h3>
+                    <p>Advanced laser procedures for hair removal, pigmentation, and skin rejuvenation</p>
                 </div>
 
                 <div class="service-card glass glass-tilt reveal" style="transition-delay: 0.2s;">
@@ -551,6 +815,7 @@
                         </svg>
                     </div>
                     <h3>Acne Treatment</h3>
+                    <p>Specialized acne care and scar treatment using latest evidence-based protocols</p>
                 </div>
 
                 <div class="service-card glass glass-tilt reveal" style="transition-delay: 0.3s;">
@@ -564,6 +829,7 @@
                         </svg>
                     </div>
                     <h3>Anti-Aging</h3>
+                    <p>Rejuvenation and aesthetic treatments for youthful, radiant skin</p>
                 </div>
             </div>
         </div>
@@ -574,38 +840,45 @@
         <div class="container">
             <div class="contact-wrapper">
                 <div class="contact-form-panel glass glass-tilt reveal">
-                    <form onsubmit="event.preventDefault(); alert('Thank you! Your consultation request has been submitted.');">
+                    <div class="form-header">
+                        <h2>Book Your Consultation</h2>
+                        <p>Schedule an appointment with Dr. Dutta</p>
+                    </div>
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY_HERE">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" class="form-control" required>
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control" required>
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" class="form-control" required>
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="datetime">Preferred Date & Time</label>
-                            <input type="datetime-local" id="datetime" class="form-control">
+                            <input type="datetime-local" id="datetime" name="datetime" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="concern">Concern Type</label>
-                            <select id="concern" class="form-control">
+                            <label for="concern">Concern Type *</label>
+                            <select id="concern" name="concern" class="form-control" required>
                                 <option value="">Select a concern...</option>
                                 <option value="acne">Acne & Scarring</option>
                                 <option value="anti-aging">Anti-Aging & Rejuvenation</option>
                                 <option value="laser">Laser Treatment</option>
+                                <option value="pigmentation">Pigmentation Issues</option>
+                                <option value="hair">Hair Loss Treatment</option>
                                 <option value="general">General Skin Consultation</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn-submit">Submit</button>
+                        <button type="submit" class="btn-submit">Submit Appointment Request</button>
                     </form>
                     
-                    <!-- Decorative DNA around form -->
+                    <!-- Decorative DNA -->
                     <svg class="dna-helix" style="position: absolute; top: -30px; left: -40px; width: 60px; height: 150px; z-index: -1;" viewBox="0 0 80 200">
                         <path d="M 20 0 Q 60 50 20 100 T 20 200" fill="none" stroke="#D4A574" stroke-width="3"/>
                         <path d="M 60 0 Q 20 50 60 100 T 60 200" fill="none" stroke="#D4A574" stroke-width="3"/>
@@ -623,15 +896,20 @@
 
                 <div class="contact-info reveal" style="transition-delay: 0.2s;">
                     <div class="contact-details">
-                        <p><strong>Call:</strong> +91 98XXX-XXXXX</p>
-                        <p><strong>Email:</strong> care@dermaclinic.in</p>
-                        <p><strong>Address:</strong> No.123 Health Avenue, Kolkata</p>
+                        <p>📞 <strong>Call:</strong> +91 98XXX-XXXXX</p>
+                        <p>✉️ <strong>Email:</strong> care@dermaclinic.in</p>
+                        <p>📍 <strong>Address:</strong> No.123 Health Avenue, Kolkata</p>
                     </div>
-                    <button class="btn-consultation">Book Your Consultation</button>
+                    <a href="tel:+9198XXXXXXXX" class="btn-consultation">Call Now</a>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Dr. Sayantika Dutta. All rights reserved. | MBBS, Fellowship British Association of Dermatology</p>
+    </footer>
 
     <script>
         // --- Scroll Reveal Animation ---
@@ -662,8 +940,8 @@
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
                 
-                const rotateX = ((y - centerY) / centerY) * -10; // Max 10deg rotation
-                const rotateY = ((x - centerX) / centerX) * 10;
+                const rotateX = ((y - centerY) / centerY) * -8;
+                const rotateY = ((x - centerX) / centerX) * 8;
                 
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
             });
@@ -673,40 +951,31 @@
             });
         });
 
-        // --- Parallax Effect for Background Elements ---
-        const bgContainer = document.getElementById('bgContainer');
-        const spheres = document.querySelectorAll('.sphere');
-        const molecules = document.querySelectorAll('.molecule');
-        const dnaHelices = document.querySelectorAll('.dna-helix');
+        // --- Smooth Scroll for Navigation ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
+        // --- Parallax Effect for Background Elements ---
         document.addEventListener('mousemove', (e) => {
             const mouseX = e.clientX / window.innerWidth;
             const mouseY = e.clientY / window.innerHeight;
             
-            // Move spheres slightly
+            const spheres = document.querySelectorAll('.sphere');
             spheres.forEach((sphere, index) => {
-                const speed = (index % 3 + 1) * 10;
+                const speed = (index % 3 + 1) * 8;
                 const x = (mouseX - 0.5) * speed;
                 const y = (mouseY - 0.5) * speed;
                 sphere.style.transform = `translate(${x}px, ${y}px)`;
-            });
-
-            // Move molecules
-            molecules.forEach((mol, index) => {
-                const speed = (index % 2 + 1) * 15;
-                const x = (mouseX - 0.5) * speed;
-                const y = (mouseY - 0.5) * speed;
-                mol.style.transform = `translate(${x}px, ${y}px)`;
-            });
-        });
-
-        // Smooth scroll for any anchor links (if added later)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
             });
         });
     </script>
