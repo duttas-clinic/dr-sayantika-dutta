@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Sayantika Dutta | Expert Dermatologist</title>
-    <meta name="description" content="Expert Dermatological Care by Dr. Sayantika Dutta. MBBS, Fellowship British Association of Dermatology. Advanced skin treatments and laser therapy.">
+    <title>Dr. Sayantika Dutta | Bespoke Dermatological Care</title>
+    <meta name="description" content="Curated dermatological excellence by Dr. Sayantika Dutta. MBBS, Fellowship British Association of Dermatology. Experience bespoke skin care in a serene environment.">
+    <meta property="og:title" content="Dr. Sayantika Dutta | Bespoke Dermatological Care">
+    <meta property="og:description" content="Where British dermatological excellence meets curated, compassionate care.">
+    <meta property="og:type" content="website">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --peach: #FDDCD5;
-            --lavender: #C9B1E0;
-            --cream: #FFF5EE;
-            --gold: #D4A574;
-            --gold-dark: #B88A5C;
-            --text-dark: #2D2433;
-            --text-light: #5A4F63;
-            --glass-bg: rgba(255, 255, 255, 0.4);
-            --glass-border: rgba(255, 255, 255, 0.8);
-            --glass-shadow: 0 8px 32px 0 rgba(45, 36, 51, 0.12);
+            --pearl: #FDFBF9;
+            --champagne: #F4F1EA;
+            --gold: #C5A059;
+            --gold-light: #E8D5B5;
+            --charcoal: #1C1C1E;
+            --warm-gray: #6B665F;
+            --glass-bg: rgba(253, 251, 249, 0.65);
+            --glass-border: rgba(197, 160, 89, 0.15);
+            --glass-shadow: 0 20px 40px -10px rgba(28, 28, 30, 0.08);
         }
 
         * {
@@ -28,84 +32,133 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-dark);
-            background: linear-gradient(135deg, #faf7f5 0%, #f5f0f8 40%, #f0f4f8 100%);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--charcoal);
+            background-color: var(--pearl);
             overflow-x: hidden;
-            min-height: 100vh;
-            position: relative;
-            line-height: 1.6;
+            line-height: 1.8;
+            font-weight: 300;
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            color: var(--charcoal);
+            line-height: 1.2;
         }
 
-        /* --- Background Floating Elements --- */
-        .bg-container {
+        /* --- Ambient Background --- */
+        .ambient-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: 0;
+            z-index: -1;
             overflow: hidden;
+            background: var(--pearl);
         }
 
-        .sphere {
+        .glow-orb {
             position: absolute;
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(255,255,255,0.4) 30%, rgba(201, 177, 224, 0.4) 70%, rgba(253, 220, 213, 0.5) 100%);
-            box-shadow: inset -10px -10px 20px rgba(0,0,0,0.05), 0 15px 35px rgba(90, 79, 99, 0.1);
-            animation: float 8s ease-in-out infinite;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: drift 20s ease-in-out infinite;
         }
 
-        .sphere.small { width: 40px; height: 40px; }
-        .sphere.medium { width: 80px; height: 80px; }
-        .sphere.large { width: 150px; height: 150px; }
-        .sphere.xlarge { width: 250px; height: 250px; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+        .glow-orb.one {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+            top: -10%;
+            right: -10%;
         }
 
-        .molecule {
-            position: absolute;
-            animation: floatRotate 12s ease-in-out infinite;
+        .glow-orb.two {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #E8E4DF 0%, transparent 70%);
+            bottom: -10%;
+            left: -10%;
+            animation-delay: -10s;
         }
 
-        @keyframes floatRotate {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(10deg); }
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.05); }
         }
 
-        .dna-helix {
-            position: absolute;
-            animation: floatSlow 10s ease-in-out infinite;
-        }
-
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* --- Glassmorphism Base --- */
-        .glass {
-            background: var(--glass-bg);
+        /* --- Navigation --- */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 2rem 4rem;
+            background: rgba(253, 251, 249, 0.85);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            box-shadow: var(--glass-shadow);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+            transition: all 0.4s ease;
         }
 
-        .glass-tilt {
-            transition: transform 0.1s ease-out;
-            transform-style: preserve-3d;
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--warm-gray);
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .nav-links a:hover {
+            color: var(--charcoal);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         /* --- Layout & Sections --- */
@@ -116,78 +169,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             width: 100%;
             margin: 0 auto;
-            position: relative;
-        }
-
-        /* --- Navigation --- */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 1.5rem 2rem;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .nav-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-light);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-dark);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
         }
 
         /* --- Hero Section --- */
@@ -196,414 +184,397 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 2rem;
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
+            gap: 2.5rem;
         }
 
-        .initials-badge {
+        .monogram {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 1px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .monogram::before {
+            content: '';
+            position: absolute;
             width: 140px;
             height: 140px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--peach), var(--lavender));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: white;
-            box-shadow: 0 10px 40px rgba(201, 177, 224, 0.4);
-            border: 4px solid rgba(255, 255, 255, 0.8);
-            position: relative;
-            z-index: 2;
+            border: 1px solid rgba(197, 160, 89, 0.3);
         }
 
-        .hero-card {
-            padding: 3rem 4rem;
-            text-align: center;
-            position: relative;
-            z-index: 2;
+        .monogram span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--gold);
+            letter-spacing: -0.05em;
         }
 
-        .hero-card h1 {
-            font-size: 3rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
+        .hero-title {
+            font-size: 4.5rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
         }
 
-        .hero-card .credentials {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            line-height: 1.8;
-            font-weight: 400;
+        .hero-credentials {
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            font-weight: 500;
             margin-bottom: 1.5rem;
         }
 
-        .hero-card .tagline {
-            font-size: 1.25rem;
-            color: var(--text-dark);
+        .hero-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
             font-style: italic;
-            font-family: 'Playfair Display', serif;
-            opacity: 0.9;
+            color: var(--warm-gray);
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
         }
 
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn-primary {
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--peach), var(--lavender));
-            border: none;
-            border-radius: 50px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(201, 177, 224, 0.4);
+        .btn-luxury {
+            padding: 1.2rem 3.5rem;
+            background: transparent;
+            border: 1px solid var(--charcoal);
+            color: var(--charcoal);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
             text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(201, 177, 224, 0.6);
-        }
-
-        .btn-secondary {
-            padding: 1rem 2.5rem;
-            background: rgba(255, 255, 255, 0.6);
-            border: 2px solid var(--glass-border);
-            border-radius: 50px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-dark);
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.9);
-            transform: translateY(-2px);
-        }
-
-        /* --- About Section --- */
-        .about-panel {
-            padding: 5rem;
-            display: flex;
-            gap: 4rem;
-            align-items: center;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
             position: relative;
             overflow: hidden;
         }
 
-        .about-initials {
-            flex-shrink: 0;
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--peach), var(--lavender));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            font-weight: 700;
-            color: white;
-            box-shadow: 0 15px 50px rgba(201, 177, 224, 0.4);
-            border: 6px solid rgba(255, 255, 255, 0.8);
-            position: relative;
-            z-index: 2;
+        .btn-luxury::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--charcoal);
+            transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: -1;
         }
 
-        .about-text {
-            flex: 1;
+        .btn-luxury:hover {
+            color: var(--pearl);
+            border-color: var(--charcoal);
+        }
+
+        .btn-luxury:hover::before {
+            width: 100%;
+        }
+
+        .btn-luxury.gold {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        .btn-luxury.gold::before {
+            background: var(--gold);
+        }
+        .btn-luxury.gold:hover {
+            color: var(--pearl);
+        }
+
+        /* --- About Section --- */
+        .about-panel {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-visual .monogram {
+            width: 280px;
+            height: 280px;
+        }
+        .about-visual .monogram::before {
+            width: 260px;
+            height: 260px;
+        }
+        .about-visual .monogram span {
+            font-size: 7rem;
         }
 
         .about-text h2 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 2rem;
-            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
         }
 
         .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            color: var(--text-light);
+            font-size: 1.05rem;
+            color: var(--warm-gray);
             margin-bottom: 1.5rem;
+            line-height: 1.9;
         }
 
         .credentials-list {
             list-style: none;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
+            display: grid;
+            gap: 1rem;
         }
 
         .credentials-list li {
-            padding: 0.75rem 0;
-            padding-left: 2rem;
+            padding-left: 1.5rem;
             position: relative;
-            color: var(--text-dark);
-            font-weight: 500;
+            color: var(--charcoal);
+            font-weight: 400;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
         }
 
         .credentials-list li::before {
-            content: '✦';
+            content: '—';
             position: absolute;
             left: 0;
             color: var(--gold);
-            font-size: 1.2rem;
         }
 
         /* --- Services Section --- */
-        .section-title {
+        .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
-        .section-title h2 {
-            font-size: 2.8rem;
-            color: var(--text-dark);
+        .section-header h2 {
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
 
-        .section-title p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 600px;
+        .section-header p {
+            color: var(--warm-gray);
+            font-size: 1.1rem;
+            max-width: 500px;
             margin: 0 auto;
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
+            gap: 2rem;
         }
 
         .service-card {
-            padding: 3.5rem 2.5rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-            transition: all 0.4s ease;
-            cursor: pointer;
+            padding: 3.5rem 3rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 2px; /* Sharp corners feel more premium than rounded */
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
         }
 
         .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(90, 79, 99, 0.15);
-            background: rgba(255, 255, 255, 0.6);
+            transform: translateY(-5px);
+            box-shadow: var(--glass-shadow);
+            border-color: rgba(197, 160, 89, 0.3);
+        }
+
+        .service-card:hover::before {
+            transform: translateX(100%);
         }
 
         .service-icon {
-            width: 90px;
-            height: 90px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(253, 220, 213, 0.3), rgba(201, 177, 224, 0.3));
-            border-radius: 50%;
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover .service-icon {
-            transform: scale(1.1);
+            width: 50px;
+            height: 50px;
+            margin-bottom: 2rem;
         }
 
         .service-icon svg {
-            width: 50px;
-            height: 50px;
-            stroke: var(--text-dark);
-            stroke-width: 1.5;
+            width: 100%;
+            height: 100%;
+            stroke: var(--gold);
+            stroke-width: 1;
             fill: none;
         }
 
         .service-card h3 {
-            font-size: 1.6rem;
-            color: var(--text-dark);
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
         }
 
         .service-card p {
-            color: var(--text-light);
+            color: var(--warm-gray);
             font-size: 0.95rem;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         /* --- Contact Section --- */
         .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info p {
+            color: var(--warm-gray);
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+        }
+
+        .contact-detail {
+            margin-bottom: 1.5rem;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 3rem;
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-            margin: 0 auto;
+        }
+
+        .contact-detail span.label {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .contact-detail span.value {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
         }
 
         .contact-form-panel {
-            padding: 3.5rem;
-            width: 100%;
-            position: relative;
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .form-header h2 {
-            font-size: 2.2rem;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .form-header p {
-            color: var(--text-light);
+            padding: 4rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 2px;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-            color: var(--text-dark);
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            margin-bottom: 0.8rem;
             font-weight: 500;
         }
 
         .form-control {
             width: 100%;
-            padding: 1rem 1.25rem;
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: 12px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            color: var(--text-dark);
+            padding: 0.8rem 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(28, 28, 30, 0.2);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--charcoal);
             outline: none;
-            transition: all 0.3s ease;
+            transition: border-color 0.3s ease;
+            border-radius: 0;
         }
 
         .form-control:focus {
-            background: rgba(255, 255, 255, 0.9);
-            border-color: var(--lavender);
-            box-shadow: 0 0 0 4px rgba(201, 177, 224, 0.2);
+            border-bottom-color: var(--gold);
+        }
+
+        .form-control::placeholder {
+            color: rgba(107, 102, 95, 0.4);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
         }
 
         select.form-control {
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232D2433' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C5A059' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            background-position: right 1.25rem center;
+            background-position: right 0 center;
+            cursor: pointer;
         }
 
         .btn-submit {
             width: 100%;
-            padding: 1.25rem;
-            background: linear-gradient(135deg, var(--peach), var(--lavender));
-            border: none;
-            border-radius: 12px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-dark);
+            padding: 1.2rem;
+            background: var(--charcoal);
+            border: 1px solid var(--charcoal);
+            color: var(--pearl);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(201, 177, 224, 0.4);
+            transition: all 0.4s ease;
+            margin-top: 1rem;
         }
 
         .btn-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(201, 177, 224, 0.6);
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            flex-wrap: wrap;
-            gap: 2rem;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
-        }
-
-        .contact-details p {
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-details p:last-child {
-            margin-bottom: 0;
-        }
-
-        .btn-consultation {
-            padding: 1.25rem 3rem;
-            background: linear-gradient(135deg, #fff, var(--peach));
-            border: 2px solid rgba(255,255,255,0.8);
-            border-radius: 50px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-consultation:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            background: var(--gold);
+            border-color: var(--gold);
         }
 
         /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 3rem 2rem;
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid var(--glass-border);
-            color: var(--text-light);
-            font-size: 0.95rem;
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(197, 160, 89, 0.15);
+            color: var(--warm-gray);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
         }
 
         /* --- Scroll Reveal --- */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
         }
         .reveal.active {
             opacity: 1;
@@ -612,112 +583,61 @@
 
         /* --- Responsive --- */
         @media (max-width: 968px) {
-            .nav-links { display: none; }
-            .hero-card h1 { font-size: 2.2rem; }
-            .hero-card { padding: 2.5rem 3rem; }
-            .about-panel { flex-direction: column; padding: 3rem; gap: 3rem; }
-            .about-initials { width: 220px; height: 220px; font-size: 4rem; }
+            .nav { padding: 1.5rem 2rem; }
+            .nav-links { display: none; } /* Simplified for mobile, can add hamburger later */
+            .hero-title { font-size: 3rem; }
+            .about-panel { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+            .about-text h2::after { left: 50%; transform: translateX(-50%); }
+            .credentials-list { text-align: left; max-width: 400px; margin: 2.5rem auto 0; }
             .services-grid { grid-template-columns: 1fr; }
-            .contact-info { flex-direction: column; text-align: center; }
-            .contact-details p { justify-content: center; }
+            .contact-wrapper { grid-template-columns: 1fr; gap: 4rem; }
+            .contact-info { text-align: center; }
+            .contact-detail { align-items: center; }
         }
 
         @media (max-width: 640px) {
-            .hero-card h1 { font-size: 1.8rem; }
-            .hero-card { padding: 2rem; }
-            .initials-badge { width: 110px; height: 110px; font-size: 2.5rem; }
-            .section-title h2 { font-size: 2.2rem; }
-            .about-text h2 { font-size: 2.2rem; }
+            .hero-title { font-size: 2.5rem; }
+            .monogram { width: 120px; height: 120px; }
+            .monogram::before { width: 100px; height: 100px; }
+            .monogram span { font-size: 3rem; }
             .contact-form-panel { padding: 2.5rem 2rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Ambient Background -->
+    <div class="ambient-bg">
+        <div class="glow-orb one"></div>
+        <div class="glow-orb two"></div>
+    </div>
+
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-content">
-            <a href="#" class="logo">Dr. Sayantika Dutta</a>
+            <a href="#" class="logo">DR. SAYANTIKA DUTTA</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">Philosophy</a></li>
+                <li><a href="#services">Expertise</a></li>
+                <li><a href="#contact">Consultation</a></li>
             </ul>
         </div>
     </nav>
-
-    <!-- Background Floating Elements -->
-    <div class="bg-container" id="bgContainer">
-        <!-- Spheres -->
-        <div class="sphere xlarge" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
-        <div class="sphere large" style="top: 20%; right: 10%; animation-delay: -2s;"></div>
-        <div class="sphere medium" style="bottom: 15%; left: 15%; animation-delay: -4s;"></div>
-        <div class="sphere small" style="top: 50%; right: 20%; animation-delay: -1s;"></div>
-        <div class="sphere large" style="bottom: 10%; right: 5%; animation-delay: -3s;"></div>
-        <div class="sphere medium" style="top: 60%; left: 5%; animation-delay: -5s;"></div>
-
-        <!-- Molecules (SVG) -->
-        <svg class="molecule" style="top: 15%; left: 20%; width: 100px; height: 100px;" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="12" fill="rgba(255,255,255,0.6)" stroke="#D4A574" stroke-width="2"/>
-            <circle cx="20" cy="30" r="8" fill="rgba(255,255,255,0.6)" stroke="#D4A574" stroke-width="2"/>
-            <circle cx="80" cy="30" r="8" fill="rgba(255,255,255,0.6)" stroke="#D4A574" stroke-width="2"/>
-            <circle cx="30" cy="80" r="8" fill="rgba(255,255,255,0.6)" stroke="#D4A574" stroke-width="2"/>
-            <line x1="50" y1="50" x2="20" y2="30" stroke="#D4A574" stroke-width="2"/>
-            <line x1="50" y1="50" x2="80" y2="30" stroke="#D4A574" stroke-width="2"/>
-            <line x1="50" y1="50" x2="30" y2="80" stroke="#D4A574" stroke-width="2"/>
-        </svg>
-
-        <svg class="molecule" style="bottom: 25%; right: 15%; width: 120px; height: 120px; animation-delay: -3s;" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="10" fill="rgba(255,255,255,0.5)" stroke="#D4A574" stroke-width="1.5"/>
-            <circle cx="25" cy="25" r="6" fill="rgba(255,255,255,0.5)" stroke="#D4A574" stroke-width="1.5"/>
-            <circle cx="75" cy="25" r="6" fill="rgba(255,255,255,0.5)" stroke="#D4A574" stroke-width="1.5"/>
-            <circle cx="25" cy="75" r="6" fill="rgba(255,255,255,0.5)" stroke="#D4A574" stroke-width="1.5"/>
-            <circle cx="75" cy="75" r="6" fill="rgba(255,255,255,0.5)" stroke="#D4A574" stroke-width="1.5"/>
-            <line x1="50" y1="50" x2="25" y2="25" stroke="#D4A574" stroke-width="1.5"/>
-            <line x1="50" y1="50" x2="75" y2="25" stroke="#D4A574" stroke-width="1.5"/>
-            <line x1="50" y1="50" x2="25" y2="75" stroke="#D4A574" stroke-width="1.5"/>
-            <line x1="50" y1="50" x2="75" y2="75" stroke="#D4A574" stroke-width="1.5"/>
-        </svg>
-
-        <!-- DNA Helix (SVG) -->
-        <svg class="dna-helix" style="top: 30%; right: 5%; width: 80px; height: 200px;" viewBox="0 0 80 200">
-            <path d="M 20 0 Q 60 50 20 100 T 20 200" fill="none" stroke="#D4A574" stroke-width="3" stroke-linecap="round"/>
-            <path d="M 60 0 Q 20 50 60 100 T 60 200" fill="none" stroke="#D4A574" stroke-width="3" stroke-linecap="round"/>
-            <line x1="30" y1="25" x2="50" y2="25" stroke="#D4A574" stroke-width="2"/>
-            <line x1="20" y1="50" x2="60" y2="50" stroke="#D4A574" stroke-width="2"/>
-            <line x1="30" y1="75" x2="50" y2="75" stroke="#D4A574" stroke-width="2"/>
-            <line x1="40" y1="100" x2="40" y2="100" stroke="#D4A574" stroke-width="2"/>
-            <line x1="30" y1="125" x2="50" y2="125" stroke="#D4A574" stroke-width="2"/>
-            <line x1="20" y1="150" x2="60" y2="150" stroke="#D4A574" stroke-width="2"/>
-            <line x1="30" y1="175" x2="50" y2="175" stroke="#D4A574" stroke-width="2"/>
-        </svg>
-
-        <svg class="dna-helix" style="bottom: 10%; left: 10%; width: 60px; height: 150px; animation-delay: -4s;" viewBox="0 0 80 200">
-            <path d="M 20 0 Q 60 50 20 100 T 20 200" fill="none" stroke="#D4A574" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M 60 0 Q 20 50 60 100 T 60 200" fill="none" stroke="#D4A574" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="30" y1="25" x2="50" y2="25" stroke="#D4A574" stroke-width="1.5"/>
-            <line x1="20" y1="50" x2="60" y2="50" stroke="#D4A574" stroke-width="1.5"/>
-            <line x1="30" y1="75" x2="50" y2="75" stroke="#D4A574" stroke-width="1.5"/>
-            <line x1="30" y1="125" x2="50" y2="125" stroke="#D4A574" stroke-width="1.5"/>
-            <line x1="20" y1="150" x2="60" y2="150" stroke="#D4A574" stroke-width="1.5"/>
-            <line x1="30" y1="175" x2="50" y2="175" stroke="#D4A574" stroke-width="1.5"/>
-        </svg>
-    </div>
 
     <!-- Hero Section -->
     <section id="home">
         <div class="container">
             <div class="hero-content">
-                <div class="initials-badge reveal">SD</div>
-                <div class="hero-card glass glass-tilt reveal">
-                    <h1>Dr. Sayantika Dutta</h1>
-                    <p class="credentials">MBBS | Fellowship In Dermatology, British Association of Dermatology</p>
-                    <p class="tagline">"Where British dermatological excellence meets compassionate care"</p>
-                    <div class="hero-cta">
-                        <a href="#contact" class="btn-primary">Book Consultation</a>
-                        <a href="#services" class="btn-secondary">Our Services</a>
-                    </div>
+                <div class="monogram reveal">
+                    <span>SD</span>
+                </div>
+                <h1 class="hero-title reveal">Dr. Sayantika Dutta</h1>
+                <p class="hero-credentials reveal">MBBS &nbsp;|&nbsp; Fellowship, British Association of Dermatology</p>
+                <p class="hero-tagline reveal">"Curated dermatological excellence in a sanctuary of care."</p>
+                <div class="reveal" style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
+                    <a href="#contact" class="btn-luxury gold">Request Consultation</a>
+                    <a href="#services" class="btn-luxury">View Expertise</a>
                 </div>
             </div>
         </div>
@@ -726,39 +646,23 @@
     <!-- About Section -->
     <section id="about">
         <div class="container">
-            <div class="about-panel glass reveal">
-                <div class="about-initials">SD</div>
-                <div class="about-text">
-                    <h2>About</h2>
-                    <p>Dr. Sayantika Dutta brings world-class dermatological expertise to every consultation. With her MBBS foundation and a prestigious Fellowship from the British Association of Dermatology, she combines evidence-based medicine with a personalized approach to skin health.</p>
-                    <p>Her clinic offers a serene environment where advanced technology meets compassionate care, ensuring the best outcomes for every patient. Specializing in both medical and aesthetic dermatology, Dr. Dutta is dedicated to helping you achieve your healthiest, most radiant skin.</p>
+            <div class="about-panel">
+                <div class="about-visual reveal">
+                    <div class="monogram">
+                        <span>SD</span>
+                    </div>
+                </div>
+                <div class="about-text reveal">
+                    <h2>The Philosophy</h2>
+                    <p>True dermatological care extends beyond clinical treatment; it is an art of restoration and confidence. Dr. Sayantika Dutta brings world-class expertise to every consultation, seamlessly blending evidence-based British dermatological standards with a deeply personalized approach.</p>
+                    <p>Her practice is designed as a serene sanctuary, where advanced medical technology meets unhurried, compassionate attention. Every treatment plan is meticulously curated to honor the unique biology and aesthetic goals of the individual.</p>
                     <ul class="credentials-list">
-                        <li>MBBS - Medical Degree</li>
-                        <li>Fellowship - British Association of Dermatology</li>
-                        <li>Advanced Training in Laser & Aesthetic Procedures</li>
-                        <li>Member of Indian Association of Dermatologists</li>
+                        <li>MBBS, Medical Degree</li>
+                        <li>Fellowship, British Association of Dermatology</li>
+                        <li>Advanced Certification in Aesthetic & Laser Medicine</li>
+                        <li>Member, Indian Association of Dermatologists (IADVL)</li>
                     </ul>
                 </div>
-                
-                <!-- Floating elements -->
-                <div class="sphere medium" style="top: -20px; right: -20px; width: 60px; height: 60px;"></div>
-                <div class="sphere small" style="bottom: -15px; right: 20%; width: 40px; height: 40px;"></div>
-                <svg class="molecule" style="bottom: -30px; left: 10%; width: 80px; height: 80px;" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="8" fill="rgba(255,255,255,0.6)" stroke="#D4A574" stroke-width="2"/>
-                    <circle cx="20" cy="30" r="5" fill="rgba(255,255,255,0.6)" stroke="#D4A574" stroke-width="2"/>
-                    <circle cx="80" cy="30" r="5" fill="rgba(255,255,255,0.6)" stroke="#D4A574" stroke-width="2"/>
-                    <circle cx="50" cy="90" r="5" fill="rgba(255,255,255,0.6)" stroke="#D4A574" stroke-width="2"/>
-                    <line x1="50" y1="50" x2="20" y2="30" stroke="#D4A574" stroke-width="2"/>
-                    <line x1="50" y1="50" x2="80" y2="30" stroke="#D4A574" stroke-width="2"/>
-                    <line x1="50" y1="50" x2="50" y2="90" stroke="#D4A574" stroke-width="2"/>
-                </svg>
-                <svg class="dna-helix" style="bottom: -40px; right: 10%; width: 60px; height: 120px;" viewBox="0 0 80 200">
-                    <path d="M 20 0 Q 60 50 20 100 T 20 200" fill="none" stroke="#D4A574" stroke-width="3"/>
-                    <path d="M 60 0 Q 20 50 60 100 T 60 200" fill="none" stroke="#D4A574" stroke-width="3"/>
-                    <line x1="30" y1="25" x2="50" y2="25" stroke="#D4A574" stroke-width="2"/>
-                    <line x1="20" y1="50" x2="60" y2="50" stroke="#D4A574" stroke-width="2"/>
-                    <line x1="30" y1="75" x2="50" y2="75" stroke="#D4A574" stroke-width="2"/>
-                </svg>
             </div>
         </div>
     </section>
@@ -766,25 +670,25 @@
     <!-- Services Section -->
     <section id="services">
         <div class="container">
-            <div class="section-title reveal">
-                <h2>Our Services</h2>
-                <p>Comprehensive dermatological solutions — from medical treatments to advanced aesthetic procedures</p>
+            <div class="section-header reveal">
+                <h2>Areas of Expertise</h2>
+                <p>Bespoke solutions for medical and aesthetic dermatological needs.</p>
             </div>
             <div class="services-grid">
-                <div class="service-card glass glass-tilt reveal">
+                <div class="service-card reveal">
                     <div class="service-icon">
                         <svg viewBox="0 0 100 100">
                             <path d="M 30 20 Q 50 10 70 20 T 70 50 Q 70 80 30 80 T 30 50 Z" stroke-linecap="round"/>
                             <path d="M 40 30 Q 50 25 60 30" stroke-linecap="round"/>
                             <path d="M 35 60 Q 50 55 65 60" stroke-linecap="round"/>
-                            <circle cx="50" cy="45" r="5"/>
+                            <circle cx="50" cy="45" r="3"/>
                         </svg>
                     </div>
-                    <h3>Skin Treatments</h3>
-                    <p>Medical dermatology for all skin conditions including eczema, psoriasis, and dermatitis</p>
+                    <h3>Clinical Dermatology</h3>
+                    <p>Comprehensive diagnosis and management of complex skin conditions, including eczema, psoriasis, and autoimmune dermatoses, utilizing the latest global protocols.</p>
                 </div>
                 
-                <div class="service-card glass glass-tilt reveal" style="transition-delay: 0.1s;">
+                <div class="service-card reveal" style="transition-delay: 0.1s;">
                     <div class="service-icon">
                         <svg viewBox="0 0 100 100">
                             <rect x="45" y="10" width="10" height="30" rx="2"/>
@@ -792,44 +696,35 @@
                             <line x1="50" y1="75" x2="50" y2="90" stroke-linecap="round"/>
                             <line x1="35" y1="60" x2="20" y2="60" stroke-linecap="round"/>
                             <line x1="65" y1="60" x2="80" y2="60" stroke-linecap="round"/>
-                            <line x1="50" y1="45" x2="50" y2="30" stroke-linecap="round"/>
-                            <line x1="39" y1="49" x2="28" y2="38" stroke-linecap="round"/>
-                            <line x1="61" y1="49" x2="72" y2="38" stroke-linecap="round"/>
-                            <line x1="39" y1="71" x2="28" y2="82" stroke-linecap="round"/>
-                            <line x1="61" y1="71" x2="72" y2="82" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <h3>Laser Therapy</h3>
-                    <p>Advanced laser procedures for hair removal, pigmentation, and skin rejuvenation</p>
+                    <h3>Advanced Laser Therapy</h3>
+                    <p>Precision laser treatments for hair removal, vascular lesions, and pigmentation, administered with an emphasis on safety and optimal skin rejuvenation.</p>
                 </div>
 
-                <div class="service-card glass glass-tilt reveal" style="transition-delay: 0.2s;">
+                <div class="service-card reveal" style="transition-delay: 0.2s;">
                     <div class="service-icon">
                         <svg viewBox="0 0 100 100">
                             <path d="M 30 40 Q 50 20 70 40 T 70 70 Q 50 90 30 70 T 30 40 Z" stroke-linecap="round"/>
-                            <circle cx="40" cy="50" r="4"/>
-                            <circle cx="60" cy="55" r="3"/>
-                            <circle cx="50" cy="65" r="5"/>
-                            <path d="M 20 30 Q 30 20 40 30" stroke-linecap="round"/>
-                            <path d="M 60 30 Q 70 20 80 30" stroke-linecap="round"/>
+                            <circle cx="40" cy="50" r="3"/>
+                            <circle cx="60" cy="55" r="2"/>
+                            <circle cx="50" cy="65" r="4"/>
                         </svg>
                     </div>
-                    <h3>Acne Treatment</h3>
-                    <p>Specialized acne care and scar treatment using latest evidence-based protocols</p>
+                    <h3>Acne & Scar Revision</h3>
+                    <p>Targeted, multi-modal therapies to resolve active acne and restore skin texture, minimizing scarring through evidence-based medical and procedural interventions.</p>
                 </div>
 
-                <div class="service-card glass glass-tilt reveal" style="transition-delay: 0.3s;">
+                <div class="service-card reveal" style="transition-delay: 0.3s;">
                     <div class="service-icon">
                         <svg viewBox="0 0 100 100">
                             <path d="M 30 30 Q 50 10 70 30 T 70 70 Q 50 90 30 70 T 30 30 Z" stroke-linecap="round"/>
                             <path d="M 40 45 Q 45 40 50 45 T 60 45" stroke-linecap="round"/>
                             <path d="M 45 60 Q 50 65 55 60" stroke-linecap="round"/>
-                            <path d="M 35 50 Q 30 60 35 70" stroke-linecap="round"/>
-                            <path d="M 65 50 Q 70 60 65 70" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <h3>Anti-Aging</h3>
-                    <p>Rejuvenation and aesthetic treatments for youthful, radiant skin</p>
+                    <h3>Aesthetic Rejuvenation</h3>
+                    <p>Subtle, natural-looking anti-aging treatments designed to restore volume, refine contours, and enhance the skin’s inherent radiance without altering facial identity.</p>
                 </div>
             </div>
         </div>
@@ -839,68 +734,58 @@
     <section id="contact">
         <div class="container">
             <div class="contact-wrapper">
-                <div class="contact-form-panel glass glass-tilt reveal">
-                    <div class="form-header">
-                        <h2>Book Your Consultation</h2>
-                        <p>Schedule an appointment with Dr. Dutta</p>
-                    </div>
-                    <form action="https://api.web3forms.com/submit" method="POST">
-                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY_HERE">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="datetime">Preferred Date & Time</label>
-                            <input type="datetime-local" id="datetime" name="datetime" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="concern">Concern Type *</label>
-                            <select id="concern" name="concern" class="form-control" required>
-                                <option value="">Select a concern...</option>
-                                <option value="acne">Acne & Scarring</option>
-                                <option value="anti-aging">Anti-Aging & Rejuvenation</option>
-                                <option value="laser">Laser Treatment</option>
-                                <option value="pigmentation">Pigmentation Issues</option>
-                                <option value="hair">Hair Loss Treatment</option>
-                                <option value="general">General Skin Consultation</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn-submit">Submit Appointment Request</button>
-                    </form>
+                <div class="contact-info reveal">
+                    <h2>Begin Your Journey</h2>
+                    <p>We invite you to schedule a private consultation. Our team will ensure your visit is seamless, confidential, and tailored to your needs.</p>
                     
-                    <!-- Decorative DNA -->
-                    <svg class="dna-helix" style="position: absolute; top: -30px; left: -40px; width: 60px; height: 150px; z-index: -1;" viewBox="0 0 80 200">
-                        <path d="M 20 0 Q 60 50 20 100 T 20 200" fill="none" stroke="#D4A574" stroke-width="3"/>
-                        <path d="M 60 0 Q 20 50 60 100 T 60 200" fill="none" stroke="#D4A574" stroke-width="3"/>
-                        <line x1="30" y1="25" x2="50" y2="25" stroke="#D4A574" stroke-width="2"/>
-                        <line x1="20" y1="50" x2="60" y2="50" stroke="#D4A574" stroke-width="2"/>
-                        <line x1="30" y1="75" x2="50" y2="75" stroke="#D4A574" stroke-width="2"/>
-                    </svg>
-                    <svg class="dna-helix" style="position: absolute; bottom: -20px; right: -30px; width: 50px; height: 120px; z-index: -1; animation-delay: -2s;" viewBox="0 0 80 200">
-                        <path d="M 20 0 Q 60 50 20 100 T 20 200" fill="none" stroke="#D4A574" stroke-width="2.5"/>
-                        <path d="M 60 0 Q 20 50 60 100 T 60 200" fill="none" stroke="#D4A574" stroke-width="2.5"/>
-                        <line x1="30" y1="25" x2="50" y2="25" stroke="#D4A574" stroke-width="1.5"/>
-                        <line x1="20" y1="50" x2="60" y2="50" stroke="#D4A574" stroke-width="1.5"/>
-                    </svg>
+                    <div class="contact-detail">
+                        <span class="label">Telephone</span>
+                        <span class="value">+91 98XXX XXXXX</span>
+                    </div>
+                    <div class="contact-detail">
+                        <span class="label">Electronic Mail</span>
+                        <span class="value">concierge@drsayantika.in</span>
+                    </div>
+                    <div class="contact-detail">
+                        <span class="label">Clinic Address</span>
+                        <span class="value">No. 123, Health Avenue, Kolkata</span>
+                    </div>
                 </div>
 
-                <div class="contact-info reveal" style="transition-delay: 0.2s;">
-                    <div class="contact-details">
-                        <p>📞 <strong>Call:</strong> +91 98XXX-XXXXX</p>
-                        <p>✉️ <strong>Email:</strong> care@dermaclinic.in</p>
-                        <p>📍 <strong>Address:</strong> No.123 Health Avenue, Kolkata</p>
-                    </div>
-                    <a href="tel:+9198XXXXXXXX" class="btn-consultation">Call Now</a>
+                <div class="contact-form-panel reveal" style="transition-delay: 0.2s;">
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY_HERE">
+                        <input type="hidden" name="subject" value="New Consultation Request - Dr. Sayantika Dutta">
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="e.g. Ananya Sharma" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="e.g. ananya@example.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Contact Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="+91" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="concern">Area of Concern</label>
+                            <select id="concern" name="concern" class="form-control" required>
+                                <option value="" disabled selected>Select an area of focus...</option>
+                                <option value="clinical">Clinical Skin Condition</option>
+                                <option value="acne">Acne & Scar Revision</option>
+                                <option value="laser">Laser Therapy</option>
+                                <option value="aesthetic">Aesthetic Rejuvenation</option>
+                                <option value="general">General Consultation</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Request Appointment</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -908,11 +793,12 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Dr. Sayantika Dutta. All rights reserved. | MBBS, Fellowship British Association of Dermatology</p>
+        <p>&copy; 2024 Dr. Sayantika Dutta. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.75rem; opacity: 0.7;">MBBS | Fellowship, British Association of Dermatology</p>
     </footer>
 
     <script>
-        // --- Scroll Reveal Animation ---
+        // --- Elegant Scroll Reveal ---
         const revealElements = document.querySelectorAll('.reveal');
         
         const revealObserver = new IntersectionObserver((entries) => {
@@ -922,14 +808,14 @@
                 }
             });
         }, {
-            threshold: 0.15,
+            threshold: 0.1,
             rootMargin: "0px 0px -50px 0px"
         });
 
         revealElements.forEach(el => revealObserver.observe(el));
 
-        // --- 3D Tilt Effect for Glass Cards ---
-        const tiltCards = document.querySelectorAll('.glass-tilt');
+        // --- Subtle 3D Tilt (Very restrained for luxury feel) ---
+        const tiltCards = document.querySelectorAll('.service-card, .contact-form-panel');
         
         tiltCards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -940,14 +826,15 @@
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
                 
-                const rotateX = ((y - centerY) / centerY) * -8;
-                const rotateY = ((x - centerX) / centerX) * 8;
+                // Reduced rotation for a subtle, premium feel
+                const rotateX = ((y - centerY) / centerY) * -3;
+                const rotateY = ((x - centerX) / centerX) * 3;
                 
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
             });
             
             card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
             });
         });
 
@@ -962,20 +849,6 @@
                         block: 'start'
                     });
                 }
-            });
-        });
-
-        // --- Parallax Effect for Background Elements ---
-        document.addEventListener('mousemove', (e) => {
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
-            
-            const spheres = document.querySelectorAll('.sphere');
-            spheres.forEach((sphere, index) => {
-                const speed = (index % 3 + 1) * 8;
-                const x = (mouseX - 0.5) * speed;
-                const y = (mouseY - 0.5) * speed;
-                sphere.style.transform = `translate(${x}px, ${y}px)`;
             });
         });
     </script>
