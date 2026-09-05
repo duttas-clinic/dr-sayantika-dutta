@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Sayantika Dutta | Expert Dermatologist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --peach: #FDDCD5;
+            --lavender: #C9B1E0;
+            --cream: #FFF5EE;
+            --gold: #D4A574;
+            --gold-dark: #B88A5C;
+            --text-dark: #3A2E42;
+            --text-light: #6B5B75;
+            --glass-bg: rgba(255, 255, 255, 0.35);
+            --glass-border: rgba(255, 255, 255, 0.7);
+            --glass-shadow: 0 8px 32px 0 rgba(107, 91, 117, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 40%, #e8eaf6 100%);
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- Background Floating Elements --- */
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .sphere {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(255,255,255,0.4) 30%, rgba(201, 177, 224, 0.5) 70%, rgba(253, 220, 213, 0.6) 100%);
+            box-shadow: inset -10px -10px 20px rgba(0,0,0,0.05), 0 15px 35px rgba(107, 91, 117, 0.1);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .sphere.small { width: 40px; height: 40px; }
+        .sphere.medium { width: 80px; height: 80px; }
+        .sphere.large { width: 150px; height: 150px; }
+        .sphere.xlarge { width: 250px; height: 250px; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .molecule {
+            position: absolute;
+            animation: floatRotate 12s ease-in-out infinite;
+        }
+
+        @keyframes floatRotate {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+
+        .dna-helix {
+            position: absolute;
+            animation: floatSlow 10s ease-in-out infinite;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* --- Glassmorphism Base --- */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .glass-tilt {
+            transition: transform 0.1s ease-out;
+            transform-style: preserve-3d;
+        }
+
+        /* --- Layout & Sections --- */
+        section {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* --- Hero Section --- */
+        .hero-content {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .hero-card {
+            padding: 2.5rem 3.5rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-card h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-card p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .hero-decoration {
+            position: absolute;
+            z-index: 1;
+        }
+
+        /* --- About Section --- */
+        .about-panel {
+            padding: 4rem;
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image-container {
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .about-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255,255,255,0.8);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        /* --- Services Section --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card {
+            padding: 3rem 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(107, 91, 117, 0.2);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: #8B5A6B;
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        /* --- Contact Section --- */
+        .contact-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-form-panel {
+            padding: 3rem;
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--text-dark);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: var(--lavender);
+            box-shadow: 0 0 0 3px rgba(201, 177, 224, 0.3);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%233A2E42' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--peach), var(--lavender));
+            border: none;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(201, 177, 224, 0.4);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 177, 224, 0.6);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 700px;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .contact-details p {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .btn-consultation {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #fff, var(--peach));
+            border: 1px solid rgba(255,255,255,0.8);
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .btn-consultation:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .hero-card h1 { font-size: 1.8rem; }
+            .hero-card { padding: 1.5rem 2rem; }
+            .about-panel { flex-direction: column; padding: 2rem; gap: 2rem; }
+            .about-image { width: 200px; height: 200px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .contact-info { flex-direction: column; text-align: center; }
+        }
+
+        /* --- Scroll Reveal --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Floating Elements -->
+    <div class="bg-container" id="bgContainer">
+        <!-- Spheres -->
+        <div class="sphere xlarge" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+        <div class="sphere large" style="top: 20%; right: 10%; animation-delay: -2s;"></div>
+        <div class="sphere medium" style="bottom: 15%; left: 15%; animation-delay: -4s;"></div>
+        <div class="sphere small" style="top: 50%; right: 20%; animation-delay: -1s;"></div>
+        <div class="sphere large" style="bottom: 10%; right: 5%; animation-delay: -3s;"></div>
+        <div class="sphere medium" style="top: 60%; left: 5%; animation-delay: -5s;"></div>
+
+        <!-- Molecules (SVG) -->
+        <svg class="molecule" style="top: 15%; left: 20%; width: 100px; height: 100px;" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="12" fill="rgba(255,255,255,0.6)" stroke="#D4A574" stroke-width="2"/>
+            <circle cx="20" cy="30" r="8" fill="rgba(255,255,255,0.6)" stroke="#D4A574" stroke-width="2"/>
+            <circle cx="80" cy="30" r="8" fill="rgba(255,255,255,0.6)" stroke="#D4A574" stroke-width="2"/>
+            <circle cx="30" cy="80" r="8" fill="rgba(255,255,255,0.6)" stroke="#D4A574" stroke-width="2"/>
+            <line x1="50" y1="50" x2="20" y2="30" stroke="#D4A574" stroke-width="2"/>
+            <line x1="50" y1="50" x2="80" y2="30" stroke="#D4A574" stroke-width="2"/>
+            <line x1="50" y1="50" x2="30" y2="80" stroke="#D4A574" stroke-width="2"/>
+        </svg>
+
+        <svg class="molecule" style="bottom: 25%; right: 15%; width: 120px; height: 120px; animation-delay: -3s;" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="10" fill="rgba(255,255,255,0.5)" stroke="#D4A574" stroke-width="1.5"/>
+            <circle cx="25" cy="25" r="6" fill="rgba(255,255,255,0.5)" stroke="#D4A574" stroke-width="1.5"/>
+            <circle cx="75" cy="25" r="6" fill="rgba(255,255,255,0.5)" stroke="#D4A574" stroke-width="1.5"/>
+            <circle cx="25" cy="75" r="6" fill="rgba(255,255,255,0.5)" stroke="#D4A574" stroke-width="1.5"/>
+            <circle cx="75" cy="75" r="6" fill="rgba(255,255,255,0.5)" stroke="#D4A574" stroke-width="1.5"/>
+            <line x1="50" y1="50" x2="25" y2="25" stroke="#D4A574" stroke-width="1.5"/>
+            <line x1="50" y1="50" x2="75" y2="25" stroke="#D4A574" stroke-width="1.5"/>
+            <line x1="50" y1="50" x2="25" y2="75" stroke="#D4A574" stroke-width="1.5"/>
+            <line x1="50" y1="50" x2="75" y2="75" stroke="#D4A574" stroke-width="1.5"/>
+        </svg>
+
+        <!-- DNA Helix (SVG) -->
+        <svg class="dna-helix" style="top: 30%; right: 5%; width: 80px; height: 200px;" viewBox="0 0 80 200">
+            <path d="M 20 0 Q 60 50 20 100 T 20 200" fill="none" stroke="#D4A574" stroke-width="3" stroke-linecap="round"/>
+            <path d="M 60 0 Q 20 50 60 100 T 60 200" fill="none" stroke="#D4A574" stroke-width="3" stroke-linecap="round"/>
+            <line x1="30" y1="25" x2="50" y2="25" stroke="#D4A574" stroke-width="2"/>
+            <line x1="20" y1="50" x2="60" y2="50" stroke="#D4A574" stroke-width="2"/>
+            <line x1="30" y1="75" x2="50" y2="75" stroke="#D4A574" stroke-width="2"/>
+            <line x1="40" y1="100" x2="40" y2="100" stroke="#D4A574" stroke-width="2"/>
+            <line x1="30" y1="125" x2="50" y2="125" stroke="#D4A574" stroke-width="2"/>
+            <line x1="20" y1="150" x2="60" y2="150" stroke="#D4A574" stroke-width="2"/>
+            <line x1="30" y1="175" x2="50" y2="175" stroke="#D4A574" stroke-width="2"/>
+        </svg>
+
+        <svg class="dna-helix" style="bottom: 10%; left: 10%; width: 60px; height: 150px; animation-delay: -4s;" viewBox="0 0 80 200">
+            <path d="M 20 0 Q 60 50 20 100 T 20 200" fill="none" stroke="#D4A574" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M 60 0 Q 20 50 60 100 T 60 200" fill="none" stroke="#D4A574" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="30" y1="25" x2="50" y2="25" stroke="#D4A574" stroke-width="1.5"/>
+            <line x1="20" y1="50" x2="60" y2="50" stroke="#D4A574" stroke-width="1.5"/>
+            <line x1="30" y1="75" x2="50" y2="75" stroke="#D4A574" stroke-width="1.5"/>
+            <line x1="30" y1="125" x2="50" y2="125" stroke="#D4A574" stroke-width="1.5"/>
+            <line x1="20" y1="150" x2="60" y2="150" stroke="#D4A574" stroke-width="1.5"/>
+            <line x1="30" y1="175" x2="50" y2="175" stroke="#D4A574" stroke-width="1.5"/>
+        </svg>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-card glass glass-tilt reveal">
+                    <h1>Dr. Sayantika Dutta</h1>
+                </div>
+                <div class="hero-card glass glass-tilt reveal" style="transition-delay: 0.2s;">
+                    <p>MBBS,<br>Fellowship British<br>Association of Dermatology</p>
+                </div>
+                
+                <!-- Decorative elements near hero -->
+                <svg class="hero-decoration" style="top: -20px; left: -40px; width: 80px; height: 80px;" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="10" fill="rgba(255,255,255,0.7)" stroke="#D4A574" stroke-width="2"/>
+                    <circle cx="20" cy="80" r="6" fill="rgba(255,255,255,0.7)" stroke="#D4A574" stroke-width="2"/>
+                    <line x1="50" y1="50" x2="20" y2="80" stroke="#D4A574" stroke-width="2"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-panel glass reveal">
+                <div class="about-image-container">
+                    <!-- Using a placeholder image for a female doctor -->
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" alt="Dr. Sayantika Dutta" class="about-image">
+                    <!-- Floating glass cards behind image -->
+                    <div class="glass" style="position: absolute; bottom: -20px; right: -30px; width: 120px; height: 160px; z-index: 1; transform: rotate(-10deg);"></div>
+                    <div class="glass" style="position: absolute; bottom: -40px; right: -60px; width: 100px; height: 140px; z-index: 0; transform: rotate(-20deg);"></div>
+                </div>
+                <div class="about-text">
+                    <h2>About</h2>
+                    <p>Dr. Sayantika Dutta brings world-class dermatological expertise to every consultation. With her MBBS foundation and a prestigious Fellowship from the British Association of Dermatology, she combines evidence-based medicine with a personalized approach to skin health.</p>
+                    <p>Her clinic offers a serene environment where advanced technology meets compassionate care, ensuring the best outcomes for every patient. Specializing in both medical and aesthetic dermatology, Dr. Dutta is dedicated to helping you achieve your healthiest, most radiant skin.</p>
+                </div>
+                
+                <!-- Floating elements inside about panel -->
+                <div class="sphere medium" style="top: -20px; right: -20px; width: 60px; height: 60px;"></div>
+                <div class="sphere small" style="bottom: -15px; right: 20%; width: 40px; height: 40px;"></div>
+                <svg class="molecule" style="bottom: -30px; left: 10%; width: 80px; height: 80px;" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="8" fill="rgba(255,255,255,0.6)" stroke="#D4A574" stroke-width="2"/>
+                    <circle cx="20" cy="30" r="5" fill="rgba(255,255,255,0.6)" stroke="#D4A574" stroke-width="2"/>
+                    <circle cx="80" cy="30" r="5" fill="rgba(255,255,255,0.6)" stroke="#D4A574" stroke-width="2"/>
+                    <circle cx="50" cy="90" r="5" fill="rgba(255,255,255,0.6)" stroke="#D4A574" stroke-width="2"/>
+                    <line x1="50" y1="50" x2="20" y2="30" stroke="#D4A574" stroke-width="2"/>
+                    <line x1="50" y1="50" x2="80" y2="30" stroke="#D4A574" stroke-width="2"/>
+                    <line x1="50" y1="50" x2="50" y2="90" stroke="#D4A574" stroke-width="2"/>
+                </svg>
+                <svg class="dna-helix" style="bottom: -40px; right: 10%; width: 60px; height: 120px;" viewBox="0 0 80 200">
+                    <path d="M 20 0 Q 60 50 20 100 T 20 200" fill="none" stroke="#D4A574" stroke-width="3"/>
+                    <path d="M 60 0 Q 20 50 60 100 T 60 200" fill="none" stroke="#D4A574" stroke-width="3"/>
+                    <line x1="30" y1="25" x2="50" y2="25" stroke="#D4A574" stroke-width="2"/>
+                    <line x1="20" y1="50" x2="60" y2="50" stroke="#D4A574" stroke-width="2"/>
+                    <line x1="30" y1="75" x2="50" y2="75" stroke="#D4A574" stroke-width="2"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card glass glass-tilt reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100">
+                            <path d="M 30 20 Q 50 10 70 20 T 70 50 Q 70 80 30 80 T 30 50 Z" stroke-linecap="round"/>
+                            <path d="M 40 30 Q 50 25 60 30" stroke-linecap="round"/>
+                            <path d="M 35 60 Q 50 55 65 60" stroke-linecap="round"/>
+                            <circle cx="50" cy="45" r="5"/>
+                        </svg>
+                    </div>
+                    <h3>Skin Treatments</h3>
+                </div>
+                
+                <div class="service-card glass glass-tilt reveal" style="transition-delay: 0.1s;">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100">
+                            <rect x="45" y="10" width="10" height="30" rx="2"/>
+                            <circle cx="50" cy="60" r="15"/>
+                            <line x1="50" y1="75" x2="50" y2="90" stroke-linecap="round"/>
+                            <line x1="35" y1="60" x2="20" y2="60" stroke-linecap="round"/>
+                            <line x1="65" y1="60" x2="80" y2="60" stroke-linecap="round"/>
+                            <line x1="50" y1="45" x2="50" y2="30" stroke-linecap="round"/>
+                            <line x1="39" y1="49" x2="28" y2="38" stroke-linecap="round"/>
+                            <line x1="61" y1="49" x2="72" y2="38" stroke-linecap="round"/>
+                            <line x1="39" y1="71" x2="28" y2="82" stroke-linecap="round"/>
+                            <line x1="61" y1="71" x2="72" y2="82" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Laser Therapy</h3>
+                </div>
+
+                <div class="service-card glass glass-tilt reveal" style="transition-delay: 0.2s;">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100">
+                            <path d="M 30 40 Q 50 20 70 40 T 70 70 Q 50 90 30 70 T 30 40 Z" stroke-linecap="round"/>
+                            <circle cx="40" cy="50" r="4"/>
+                            <circle cx="60" cy="55" r="3"/>
+                            <circle cx="50" cy="65" r="5"/>
+                            <path d="M 20 30 Q 30 20 40 30" stroke-linecap="round"/>
+                            <path d="M 60 30 Q 70 20 80 30" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Acne Treatment</h3>
+                </div>
+
+                <div class="service-card glass glass-tilt reveal" style="transition-delay: 0.3s;">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100">
+                            <path d="M 30 30 Q 50 10 70 30 T 70 70 Q 50 90 30 70 T 30 30 Z" stroke-linecap="round"/>
+                            <path d="M 40 45 Q 45 40 50 45 T 60 45" stroke-linecap="round"/>
+                            <path d="M 45 60 Q 50 65 55 60" stroke-linecap="round"/>
+                            <path d="M 35 50 Q 30 60 35 70" stroke-linecap="round"/>
+                            <path d="M 65 50 Q 70 60 65 70" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Anti-Aging</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-form-panel glass glass-tilt reveal">
+                    <form onsubmit="event.preventDefault(); alert('Thank you! Your consultation request has been submitted.');">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="datetime">Preferred Date & Time</label>
+                            <input type="datetime-local" id="datetime" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="concern">Concern Type</label>
+                            <select id="concern" class="form-control">
+                                <option value="">Select a concern...</option>
+                                <option value="acne">Acne & Scarring</option>
+                                <option value="anti-aging">Anti-Aging & Rejuvenation</option>
+                                <option value="laser">Laser Treatment</option>
+                                <option value="general">General Skin Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-submit">Submit</button>
+                    </form>
+                    
+                    <!-- Decorative DNA around form -->
+                    <svg class="dna-helix" style="position: absolute; top: -30px; left: -40px; width: 60px; height: 150px; z-index: -1;" viewBox="0 0 80 200">
+                        <path d="M 20 0 Q 60 50 20 100 T 20 200" fill="none" stroke="#D4A574" stroke-width="3"/>
+                        <path d="M 60 0 Q 20 50 60 100 T 60 200" fill="none" stroke="#D4A574" stroke-width="3"/>
+                        <line x1="30" y1="25" x2="50" y2="25" stroke="#D4A574" stroke-width="2"/>
+                        <line x1="20" y1="50" x2="60" y2="50" stroke="#D4A574" stroke-width="2"/>
+                        <line x1="30" y1="75" x2="50" y2="75" stroke="#D4A574" stroke-width="2"/>
+                    </svg>
+                    <svg class="dna-helix" style="position: absolute; bottom: -20px; right: -30px; width: 50px; height: 120px; z-index: -1; animation-delay: -2s;" viewBox="0 0 80 200">
+                        <path d="M 20 0 Q 60 50 20 100 T 20 200" fill="none" stroke="#D4A574" stroke-width="2.5"/>
+                        <path d="M 60 0 Q 20 50 60 100 T 60 200" fill="none" stroke="#D4A574" stroke-width="2.5"/>
+                        <line x1="30" y1="25" x2="50" y2="25" stroke="#D4A574" stroke-width="1.5"/>
+                        <line x1="20" y1="50" x2="60" y2="50" stroke="#D4A574" stroke-width="1.5"/>
+                    </svg>
+                </div>
+
+                <div class="contact-info reveal" style="transition-delay: 0.2s;">
+                    <div class="contact-details">
+                        <p><strong>Call:</strong> +91 98XXX-XXXXX</p>
+                        <p><strong>Email:</strong> care@dermaclinic.in</p>
+                        <p><strong>Address:</strong> No.123 Health Avenue, Kolkata</p>
+                    </div>
+                    <button class="btn-consultation">Book Your Consultation</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // --- Scroll Reveal Animation ---
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // --- 3D Tilt Effect for Glass Cards ---
+        const tiltCards = document.querySelectorAll('.glass-tilt');
+        
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -10; // Max 10deg rotation
+                const rotateY = ((x - centerX) / centerX) * 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
+
+        // --- Parallax Effect for Background Elements ---
+        const bgContainer = document.getElementById('bgContainer');
+        const spheres = document.querySelectorAll('.sphere');
+        const molecules = document.querySelectorAll('.molecule');
+        const dnaHelices = document.querySelectorAll('.dna-helix');
+
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            // Move spheres slightly
+            spheres.forEach((sphere, index) => {
+                const speed = (index % 3 + 1) * 10;
+                const x = (mouseX - 0.5) * speed;
+                const y = (mouseY - 0.5) * speed;
+                sphere.style.transform = `translate(${x}px, ${y}px)`;
+            });
+
+            // Move molecules
+            molecules.forEach((mol, index) => {
+                const speed = (index % 2 + 1) * 15;
+                const x = (mouseX - 0.5) * speed;
+                const y = (mouseY - 0.5) * speed;
+                mol.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+
+        // Smooth scroll for any anchor links (if added later)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
